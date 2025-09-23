@@ -1,0 +1,41 @@
+Rotina de atividade física
+
+#include <stdio.h>
+//Algoritmo para avaliar o dia em que o usuário fez mais exercícios
+
+int main()
+{
+    //Array para armazenar o número de atividades
+    int numAtividades [7];
+    //Array para armazenar os dias da semana
+    char *diasSemana [] = {"Segunda-feira", "Terca-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sabado", "Domingo"};
+    
+    printf("Registro de exercícios na semana \n");
+    // For será usado para registrar o número de atividades realizadas para cada dia da semana
+    for(int i=0; i<7; i++){
+        printf("Quantas atividades você fez na %s?", diasSemana[i]);
+        scanf(" %d", &numAtividades[i]);
+    }
+    //Variável para encontrar o dia com o maior número de atividades
+    int maiorNumAtividades = 0;
+    
+    //Atribuindo o maior número de atividades
+    for(int i=0; i<7; i++){
+        if(numAtividades[i]>maiorNumAtividades){
+        maiorNumAtividades=numAtividades[i];
+    }
+    }
+    //Checando se o usuário se exercitou
+    if(maiorNumAtividades == 0){
+        printf("Você não se exercitou essa semana!");
+        return 0;
+    }
+     printf("O(s) seu(s) 'Top Day(s)' foi(foram): \n");
+    //Encontrar o(s) Top(s) Day(s)
+    for(int i=0; i<7; i++){
+        if(numAtividades[i] == maiorNumAtividades){
+            printf("- %s, com um total de %d atividades\n", diasSemana[i], maiorNumAtividades);
+        }
+    }
+    return 0;
+}
