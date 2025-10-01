@@ -1,0 +1,38 @@
+//Pedágio - Algoritmo para avaliar o Dia de Pico
+#include <stdio.h>
+
+// Definições ANSI para formatação de texto
+#define BOLD_START "\033[1m"
+#define BOLD_END   "\033[0m"
+
+int main()
+{
+    //Array para armazenar o número de carros
+    int numCarros [7];
+    //Array para armazenar os dias da semana
+    const char *diasSemana [] = {"Segunda-feira", "Terca-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sabado", "Domingo"};
+    
+    printf("Bem-vindos ao " BOLD_START "RoadMAx " BOLD_END "- O Aplicativo que te ajuda a identificar o dia de pico na semana! \n");
+    // For será usado para registrar o número de carros registrados para cada dia da semana
+    for(int i=0; i<7; i++){
+        printf("Por favor me informe: Quantos carros passaram na %s?" "\n", diasSemana[i]);
+        scanf(" %d", &numCarros[i]);
+    }
+    //Variável para encontrar o dia de pico
+    int maiorNumCarros = 0;
+    
+    //Atribuindo o maior número de carros
+    for(int i=0; i<7; i++){
+        if(numCarros[i]>maiorNumCarros){
+        maiorNumCarros=numCarros[i];
+    }
+    }
+     printf(BOLD_START "O(s) Dias(s) de Pico foi(foram): \n" BOLD_END);
+    //Encontrar o(s) Dias(s) de Pico
+    for(int i=0; i<7; i++){
+        if(numCarros[i] == maiorNumCarros){
+            printf( "- " BOLD_START "%s, com um total de %d carros" BOLD_END "\n", diasSemana[i], maiorNumCarros);
+        }
+    }
+    return 0;
+}
